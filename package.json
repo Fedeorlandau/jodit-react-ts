@@ -28,7 +28,7 @@
     "build": "tsdx build --entry src/*",
     "test": "tsdx test",
     "lint": "tsdx lint",
-    "prepare": "tsdx build",
+    "prepare": "tsdx build --entry src/*",
     "size": "size-limit",
     "analyze": "size-limit --why"
   },
