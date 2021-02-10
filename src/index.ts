@@ -1,0 +1,1 @@
+export { JoditReact } from './JoditReact';
