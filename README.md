@@ -19,7 +19,7 @@ npm install jodit-react-ts
 
 ```tsx
 import * as React from 'react';
-import { JoditReact } from 'jodit-react-ts';
+import JoditReact from "jodit-react-ts";
 
 const App = () => {
   const [value, setValue] = React.useState<string>();

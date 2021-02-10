@@ -28,4 +28,4 @@ const JoditReact = (props: JoditReactProps) => {
   );
 };
 
-export { JoditReact };
+export default JoditReact;

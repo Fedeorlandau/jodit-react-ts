@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { JoditReact } from '../src';
+import JoditReact from '../src';
 import { render, screen } from '@testing-library/react';
 
 const JoditReactWrapper = () => {

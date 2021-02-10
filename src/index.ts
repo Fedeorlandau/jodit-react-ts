@@ -1,1 +1,3 @@
-export { JoditReact } from './JoditReact';
+import JoditReact from './JoditReact';
+
+export default JoditReact;
