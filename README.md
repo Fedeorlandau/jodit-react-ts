@@ -89,6 +89,3 @@ Please contribute using [Github Flow](https://guides.github.com/introduction/flo
 
 [npm-url]: https://www.npmjs.com/package/jodit-react-ts
 [npm-image]: http://img.shields.io/npm/v/jodit-react-ts.svg
-
-[travis-url]: https://travis-ci.org/Fedeorlandau/jodit-react-ts
-[travis-image]: https://travis-ci.org/Fedeorlandau/jodit-react-ts.svg
