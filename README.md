@@ -11,7 +11,7 @@ A React wrapper for Jodit that supports SSR and it's fully written in Typescript
 
 ## Install
 ```bash
-npm install jodit-react-ts
+npm install jodit-react-ts jodit
 ```
 
 ## Usage
@@ -20,6 +20,7 @@ npm install jodit-react-ts
 ```tsx
 import * as React from 'react';
 import JoditReact from "jodit-react-ts";
+import 'jodit/build/jodit.min.css';
 
 const App = () => {
   const [value, setValue] = React.useState<string>();
