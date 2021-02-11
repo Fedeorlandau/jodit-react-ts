@@ -24,11 +24,11 @@
     "node": ">=10"
   },
   "scripts": {
-    "start": "tsdx watch --entry src/* ",
-    "build": "tsdx build --entry src/*",
+    "start": "tsdx watch --entry src/*.tsx",
+    "build": "tsdx build --entry src/*.tsx",
     "test": "tsdx test",
     "lint": "tsdx lint",
-    "prepare": "tsdx build --entry src/*",
+    "prepare": "tsdx build --entry src/*.tsx",
     "size": "size-limit",
     "analyze": "size-limit --why"
   },

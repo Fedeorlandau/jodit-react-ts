@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { IJodit, Jodit } from 'jodit';
 import 'jodit/build/jodit.min.css';
-import { JoditReactProps } from './JoditReact';
+import { JoditReactProps } from './';
 
 const Editor = ({ config, defaultValue, onChange }: JoditReactProps) => {
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
