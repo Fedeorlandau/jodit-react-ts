@@ -1,6 +1,6 @@
 # React Jodit Wrapper
 
-A React wrapper for Jodit that supports SSR and it's fully written in Typescript.
+A React wrapper for Jodit that works.
 
 [![NPM version][npm-image]][npm-url] ![ci](https://github.com/fedeorlandau/jodit-react-ts/workflows/CI/badge.svg) 
  [![Downloads][downloads-image]][npm-url]
@@ -58,6 +58,34 @@ const MyEditorWrapper = () => {
         </React.Suspense>
       )}
     </div>
+  );
+};
+```
+
+## Config
+- Example of jodit config
+
+```tsx
+import * as React from 'react';
+import JoditReact from "jodit-react-ts";
+import 'jodit/build/jodit.min.css';
+
+/** 
+ * This needs to be defined outside the scope of our wrapper otherwise will cause multiple re-renders
+ **/
+
+const config = {
+  preset: 'inline'
+};
+
+const App = () => {
+  const [value, setValue] = React.useState<string>();
+
+  return (
+    <>
+      <JoditReact onChange={(content) => setValue(content)} defaultValue="Hi" config={config} />
+      {value}
+    </>
   );
 };
 ```
