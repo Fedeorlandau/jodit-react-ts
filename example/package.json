@@ -8,6 +8,7 @@
     "build": "parcel build index.html"
   },
   "dependencies": {
+    "jodit": "^3.5.4",
     "react-app-polyfill": "^2.0.0"
   },
   "alias": {
