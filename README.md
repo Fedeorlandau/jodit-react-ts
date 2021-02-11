@@ -2,7 +2,8 @@
 
 A React wrapper for Jodit that supports SSR and it's fully written in Typescript.
 
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Downloads][downloads-image]][npm-url]
+[![NPM version][npm-image]][npm-url] ![ci](https://github.com/fedeorlandau/jodit-react-ts/workflows/CI/badge.svg) 
+ [![Downloads][downloads-image]][npm-url]
 
 ## Demo
 [Typescript CodeSandbox](https://codesandbox.io/s/jodit-react-ts-9gt2c)
