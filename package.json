@@ -24,10 +24,10 @@
     "node": ">=10"
   },
   "scripts": {
-    "start": "tsdx watch --entry src/*.tsx",
-    "build": "tsdx build --entry src/*.tsx",
+    "start": "tsdx watch",
+    "build": "tsdx build",
     "lint": "tsdx lint",
-    "prepare": "tsdx build --entry src/*.tsx",
+    "prepare": "tsdx build",
     "size": "size-limit",
     "analyze": "size-limit --why",
     "cy:run": "cypress run",
