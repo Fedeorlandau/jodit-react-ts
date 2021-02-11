@@ -34,6 +34,33 @@ const App = () => {
 };
 ```
 
+## SSR
+- Example of SSR usage.
+
+```tsx
+import * as React from 'react';
+import 'jodit/build/jodit.min.css';
+
+const JoditReact = React.lazy(() => {
+  return import('jodit-react-ts');
+});
+
+const MyEditorWrapper = () => {
+  const isSSR = typeof window === 'undefined';
+  const [value, setValue] = React.useState<string>();
+
+  return (
+     <div>
+      {!isSSR && (
+        <React.Suspense fallback={<div>Loading</div>}>
+            <JoditReact onChange={(content) => setValue(content)} defaultValue="Hi" />
+        </React.Suspense>
+      )}
+    </div>
+  );
+};
+```
+
 ## Props
 
 

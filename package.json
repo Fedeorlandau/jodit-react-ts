@@ -26,11 +26,13 @@
   "scripts": {
     "start": "tsdx watch --entry src/*.tsx",
     "build": "tsdx build --entry src/*.tsx",
-    "test": "tsdx test",
     "lint": "tsdx lint",
     "prepare": "tsdx build --entry src/*.tsx",
     "size": "size-limit",
-    "analyze": "size-limit --why"
+    "analyze": "size-limit --why",
+    "cy:run": "cypress open",
+    "start-example": "npm run start --prefix example/",
+    "test": "start-server-and-test start-example 1234 cy:run"
   },
   "peerDependencies": {
     "react": ">=16"
@@ -63,22 +65,26 @@
     "@size-limit/preset-small-lib": "^4.9.1",
     "@testing-library/react": "^11.2.3",
     "@testing-library/user-event": "^12.6.0",
+    "@types/jsdom": "^16.2.6",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
-    "husky": "^4.3.8",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "size-limit": "^4.9.1",
-    "tsdx": "^0.14.1",
-    "tslib": "^2.1.0",
-    "typescript": "^4.1.3",
     "@typescript-eslint/eslint-plugin": "^4.12.0",
     "@typescript-eslint/parser": "^4.12.0",
+    "cypress": "^6.4.0",
     "eslint": "^7.17.0",
     "eslint-config-prettier": "^7.1.0",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-react": "^7.22.0",
-    "prettier": "^2.2.1"
+    "husky": "^4.3.8",
+    "jsdom": "^16.4.0",
+    "prettier": "^2.2.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "size-limit": "^4.9.1",
+    "start-server-and-test": "^1.12.0",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.1.0",
+    "typescript": "^4.1.3"
   },
   "dependencies": {
     "jodit": "^3.5.4"

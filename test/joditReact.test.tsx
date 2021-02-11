@@ -1,16 +1,46 @@
 import * as React from 'react';
-import JoditReact from '../src';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
+import { JSDOM } from 'jsdom';
 
-const JoditReactWrapper = () => {
+let windowSpy: any;
+
+beforeEach(() => {
+  windowSpy = jest.spyOn(global as any, 'window', 'get');
+});
+
+afterEach(() => {
+  windowSpy.mockRestore();
+});
+
+const JoditReact = React.lazy(() => {
+  return import('../src');
+});
+
+const MyEditorWrapper = () => {
+  const isSSR = typeof window === 'undefined';
   const [, setValue] = React.useState<string>();
 
-  return <JoditReact onChange={(content) => setValue(content)} />;
+  return (
+    <div>
+      {!isSSR && (
+        <React.Suspense fallback={<div>Loading</div>}>
+          <JoditReact
+            onChange={(content) => setValue(content)}
+            defaultValue="Hi"
+          />
+        </React.Suspense>
+      )}
+    </div>
+  );
 };
 
 describe('it', () => {
-  it('renders the autocomplete input', () => {
-    render(<JoditReactWrapper />);
-    expect(screen.getByTestId('jodit-react')).toBeTruthy();
+  it('renders the autocomplete input', async () => {
+    const { window } = new JSDOM();
+
+    windowSpy.mockImplementation(() => window);
+
+    render(<MyEditorWrapper />);
+    await waitFor(() => expect(screen.getByText('Hi')).toBeTruthy());
   });
 });

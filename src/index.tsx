@@ -1,9 +1,5 @@
-import { IJodit } from 'jodit';
-import React from 'react';
-
-const Editor = React.lazy(() => {
-  return import('./Editor');
-});
+import React, { useRef, useState, useEffect } from 'react';
+import { IJodit, Jodit } from 'jodit';
 
 export interface JoditReactProps {
   /** Config option from Jodit */
@@ -14,18 +10,25 @@ export interface JoditReactProps {
   onChange: (content: string) => void;
 }
 
-const JoditReact = (props: JoditReactProps) => {
-  const isSSR = typeof window === 'undefined';
+const JoditReact = ({ config, defaultValue, onChange }: JoditReactProps) => {
+  const textAreaRef = useRef<HTMLTextAreaElement>(null);
+  const [jodit, setJodit] = useState<IJodit>();
 
-  return (
-    <div data-testid="jodit-react">
-      {!isSSR && (
-        <React.Suspense fallback={<div>Loading</div>}>
-          <Editor {...props} />
-        </React.Suspense>
-      )}
-    </div>
-  );
+  useEffect(() => {
+    if (textAreaRef && textAreaRef.current) {
+      const jodit = Jodit.make(textAreaRef.current, config);
+      jodit.events.on('change', (value) => onChange && onChange(value));
+      setJodit(jodit);
+    }
+  }, [config]);
+
+  useEffect(() => {
+    if (jodit && defaultValue) {
+      jodit.value = defaultValue;
+    }
+  }, [jodit, defaultValue]);
+
+  return <textarea ref={textAreaRef} />;
 };
 
 export default JoditReact;
