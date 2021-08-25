@@ -1,5 +1,5 @@
 {
-  "version": "0.8.0",
+  "version": "0.9.0",
   "license": "MIT",
   "description": "React wrapper for Jodit. Fully written in Typescript.",
   "main": "dist/index.js",
@@ -84,6 +84,6 @@
     "typescript": "^4.1.3"
   },
   "dependencies": {
-    "jodit": "^3.5.4"
+    "jodit": "^3.7.2"
   }
 }
